@@ -6,17 +6,11 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-    private val userObj = User("Hassan")
-
-    private val userLiveDataMutable = MutableLiveData<User>(userObj)
-
-    val userLiveData: LiveData<User>
-        get() = userLiveDataMutable
+    var userLiveData = MutableLiveData<String>("Hassan")
 
     fun updateUserData() {
-        val userObj1 = User("kamal")
 
-        userLiveDataMutable.value = userObj1
+        userLiveData.value = "kamal"
 
     }
 
