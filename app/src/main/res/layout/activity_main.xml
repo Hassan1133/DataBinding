@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="user"
-            type="com.example.databindingpractice.User" />
+            name="mainViewModel"
+            type="com.example.databindingpractice.MainViewModel" />
 
     </data>
 
@@ -21,7 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@{user.userName}" />
+            android:text="@{mainViewModel.userLiveData.userName}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="update"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/userName"
+            android:onClick="@{() -> mainViewModel.updateUserData()}"
+            />
 
     </RelativeLayout>
 </layout>
