@@ -9,6 +9,10 @@
             name="mainViewModel"
             type="com.example.databindingpractice.MainViewModel" />
 
+        <variable
+            name="post"
+            type="com.example.databindingpractice.Post" />
+
     </data>
 
     <RelativeLayout
@@ -20,27 +24,67 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
-            android:text="@={mainViewModel.userLiveData}"
-            />
+            android:text="@={mainViewModel.userLiveData}" />
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_below="@+id/editText"
-            android:text="@{mainViewModel.userLiveData}" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@{mainViewModel.userLiveData}"
+            android:textSize="20sp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="update"
-            android:layout_centerInParent="true"
             android:layout_below="@id/userName"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:onClick="@{() -> mainViewModel.updateUserData()}"
+            android:text="update" />
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/updateBtn"
+            android:layout_marginStart="20dp"
+            imageFromUrl="@{post.url}"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/image"
+            android:textSize="20sp"
+            android:text="@{post.title}"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/title"
+            android:textSize="20sp"
+            android:text="@{post.description}"
             />
 
     </RelativeLayout>
